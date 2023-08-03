@@ -1,21 +1,14 @@
-import { useState } from "react"
-function DisplayLanguage({lang}){
-    const [language,setLanguage] = useState("it")
-    const handleLanguageChange =((e)=>{
-      const data = e.target.value
-      setLanguage(data)
-    })
+
+import { useContext } from "react"
+import LanguageContext from "./LanguageContext"
+function DisplayLanguage(){
+  const lang = useContext(LanguageContext)
     return (
         <div>
-          <select value={language} onChange={handleLanguageChange}>
-            <option value="it">ITALIANO</option>
-            <option value="en">ENGLISH</option>
-          </select>
+          <h1>{lang}</h1>
         </div>
       )
     
 }
 export default DisplayLanguage
 
-// non capisco come passarglielo come props, dove dovrei inserirla
-// per passargli il valore?
